@@ -15,6 +15,10 @@ class Config {
     };
   }
 
+  get port() {
+    return Number(this.getEnv('PORT'));
+  }
+
   getEnv(key: string) {
     if (!process.env[key]) {
       throw new Error(`Environment variable ${key} is not set`);
