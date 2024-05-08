@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import amqp, { ChannelWrapper } from 'amqp-connection-manager';
-import { addToQueueProps } from 'src/common/interfaces/rabbitmq/producer.interface';
+import { addToQueueProps } from 'src/common/types/rabbitmq/producer.types';
 
 @Injectable()
 export class ProducerService {
