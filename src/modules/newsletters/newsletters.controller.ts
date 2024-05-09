@@ -7,15 +7,13 @@ import {
   Param,
   Delete,
   UseGuards,
-  Req,
-  Res,
 } from '@nestjs/common';
 import { NewslettersService } from './newsletters.service';
 import { CreateNewsletterDto } from './dto/create-newsletter.dto';
 import { UpdateNewsletterDto } from './dto/update-newsletter.dto';
 import { AuthGuard } from 'src/common/guards/auth.guard';
 
-@Controller('organizations/:organizationId/newsletters')
+@Controller('v1/organizations/:organizationId/newsletters')
 @UseGuards(AuthGuard)
 export class NewslettersController {
   constructor(private readonly newslettersService: NewslettersService) {}
@@ -26,12 +24,8 @@ export class NewslettersController {
   }
 
   @Get()
-  findAll(
-    @Param('organizationId') organizationId: string,
-    @Req() request: Request,
-    @Res() res: Response,
-  ) {
-    return this.newslettersService.findAll();
+  findAll() {
+    return 'This action returns all newsletters for the organization';
   }
 
   @Get(':id')

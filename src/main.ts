@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { config } from './config';
 import { VersioningType } from '@nestjs/common/enums';
 
@@ -10,7 +10,8 @@ async function bootstrap() {
   app.enableVersioning({
     type: VersioningType.URI,
   });
-  await app.listen(config.port || 4000);
+  app.setGlobalPrefix('api');
+  await app.listen(config.port || 3333);
 }
 
 bootstrap();

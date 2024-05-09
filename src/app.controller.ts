@@ -2,7 +2,9 @@ import { Controller, Get, HttpCode, Res } from '@nestjs/common';
 import { AppService } from './app.service';
 import type { Response } from 'express';
 
-@Controller()
+@Controller({
+  version: '1',
+})
 export class AppController {
   constructor(private readonly appService: AppService) {}
 

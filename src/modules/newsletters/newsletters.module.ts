@@ -11,6 +11,6 @@ export class NewslettersModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(organizationMiddleware)
-      .forRoutes('organizations/:organizationId/newsletters');
+      .forRoutes('v1/organizations/:organizationId/newsletters');
   }
 }
