@@ -19,6 +19,15 @@ class Config {
     return Number(this.getEnv('PORT'));
   }
 
+  get swaggerConfig() {
+    return {
+      title: 'AFRUS API',
+      description:
+        'API for AFRUS project using NestJS and TypeORM with PostgreSQL database.',
+      version: '1.0',
+    };
+  }
+
   getEnv(key: string) {
     if (!process.env[key]) {
       throw new Error(`Environment variable ${key} is not set`);

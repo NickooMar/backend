@@ -12,9 +12,11 @@ import { NewslettersService } from './newsletters.service';
 import { CreateNewsletterDto } from './dto/create-newsletter.dto';
 import { UpdateNewsletterDto } from './dto/update-newsletter.dto';
 import { AuthGuard } from 'src/common/guards/auth.guard';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('v1/organizations/:organizationId/newsletters')
 @UseGuards(AuthGuard)
+@ApiTags('Newsletters')
 export class NewslettersController {
   constructor(private readonly newslettersService: NewslettersService) {}
 
